@@ -10,6 +10,13 @@ script:
 
 after_success:
   - docker build -t inudog/multi-client ./client
-  - docker build -t inudog/multi-nginx ./client
+  - docker build -t inudog/multi-nginx ./nginx
   - docker build -t inudog/multi-server ./server
   - docker build -t inudog/multi-worker ./worker
+  # Log in to the Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push inudog/multi-client
+  - docker push inudog/multi-nginx
+  - docker push inudog/multi-server
+  - docker push inudog/multi-worker
