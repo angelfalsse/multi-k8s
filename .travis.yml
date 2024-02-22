@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t inudog/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true inudog/react-test npm test
+
+after_success:
+  - docker build -t inudog/multi-client ./client
+  - docker build -t inudog/multi-nginx ./client
+  - docker build -t inudog/multi-server ./server
+  - docker build -t inudog/multi-worker ./worker
