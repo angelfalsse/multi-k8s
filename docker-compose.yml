@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 services:
   client:
-    image: "inudog/multi-client"
+    image: 'inudog/multi-client'
     mem_limit: 128m
     hostname: client
   server:
-    image: "inudog/multi-server"
+    image: 'inudog/multi-server'
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,15 +17,15 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "inudog/multi-worker"
+    image: 'inudog/multi-worker'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "inudog/multi-nginx"
+    image: 'inudog/multi-nginx'
     mem_limit: 128m
     hostname: nginx
     ports:
-      - "80:80"
+      - '80:80'
