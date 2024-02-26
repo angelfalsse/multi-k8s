@@ -1,6 +1,6 @@
-docker build -t inudog/multi-client -f ./client/Dockerfile ./client
-docker build -t inudog/multi-server -f ./server/Dockerfile ./server
-docker build -t inudog/multi-worker -f ./worker/Dockerfile ./worker
+docker build -t inudog/multi-client:latest -t inudog/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t inudog/multi-server:latest -t inudog/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t inudog/multi-worker:latest -t inudog/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 docker push inudog/multi-client
 docker push inudog/multi-server
 docker push inudog/multi-worker
