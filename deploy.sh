@@ -5,6 +5,6 @@ docker push inudog/multi-client
 docker push inudog/multi-server
 docker push inudog/multi-worker
 kubectl apply -f k8s
-kubectl rollout restart deployment/server-deployment
-kubectl rollout restart deployment/client-deployment
-kubectl rollout restart deployment/worker-deployment
+kubectl rollout restart deployments/server-deployment
+kubectl rollout restart deployments/client-deployment
+kubectl rollout restart deployments/worker-deployment
