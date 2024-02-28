@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: worker
-        image: inudog/multi-worker
+        image: inudog/multi-worker-k8s-gh
         env:
           - name: REDIS_HOST
             value: redis-cluster-ip-service

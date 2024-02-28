@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: server
-        image: inudog/multi-server
+        image: inudog/multi-server-k8s-pgfix-gh
         ports:
         - containerPort: 5000
         env:
